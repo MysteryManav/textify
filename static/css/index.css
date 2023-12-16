@@ -1,0 +1,19 @@
+.main-content {
+    text-align: center;
+}
+
+.hero-img {
+    width: 50%;
+    height: 50%;
+    transition: ease-in-out 0.5s;
+    background-image: url("https://images.unsplash.com/photo-1543769657-fcf1236421bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80");
+    background-size: cover;
+    aspect-ratio: 4/4;
+    filter: drop-shadow(8px 8px black);
+}
+
+.hero-img:hover {
+    transition: ease-in-out 0.5s;
+    filter: drop-shadow(8px 8px black) brightness(0.8);
+    opacity: 1.2;
+}

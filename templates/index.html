@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="static/css/index.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+{% endblock styles %}
+
+{% block content %}
+<div class="container-fluid main-content pt-5 grid">
+    <div class="row">
+        <div class="col hero-section-text">
+            <h1 class="display-1">Textify</h1>
+            <p class="lead mx-5 text-start">
+                Textify is a revolutionary project that has the potential to change the way we interact with the world around us. It is a system that can accurately identify and interpret handwritten texts, opening up a wide range of new possibilities for applications in various fields.
+                <br>
+                <br>
+                Imagine being able to digitize historical documents with the touch of a button, or to transcribe handwritten notes without having to type them out. Textify could make these tasks a reality, and many more.
+                <br>
+                <br>
+                Textify is more than just a text recognition system. It is a tool that can be used to bridge the gap between the physical and digital worlds. It can help us to preserve our cultural heritage, to make information more accessible to people with disabilities, and to improve our productivity.
+                <br>
+                <br>
+            </p>
+        </div>
+        <div class="col hero-section-img float-end">
+            <img class="img-fluid hero-img mb-2">
+            <p id="lead">Credits: Author</p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-outline-dark" href="#textify-prompt">
+                Take Me To <strong>Textify!<strong> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><style>svg{fill: black} svg:hover{fill: white}</style><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="row mt-5" id="textify-prompt">
+        <div class="col">
+            <form method="POST" action="{{ url_for('home_page') }}" enctype=multipart/form-data>
+                {{ form.hidden_tag() }}
+                {{ form.photo.label }}: {{ form.photo }}
+                {{ form.submit(class="btn btn-outline-dark") }}
+            </form>
+        </div>
+    </div>
+
+    {% if photo %}
+    <div class="row mt-5">
+        <div class="col">
+            <h1 class="display-1">Image</h1>
+            <p class="lead mx-5 text-start">
+                Here is the image you uploaded: {{ filename }}
+            </p>
+            <img class="img-fluid" src="{{ photo_path }}">
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}
