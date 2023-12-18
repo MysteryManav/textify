@@ -54,8 +54,23 @@
                 Here is the image you uploaded: {{ filename }}
             </p>
             <img class="img-fluid" src="{{ photo_path }}">
+
         </div>
     </div>
     {% endif %}
+    {% if text %}
+    <div class="row mt-5">
+        <div class="col">
+            <h1 class="display-1">Recognized Text</h1>
+            <p class="lead mx-5 text-start">
+                Here is the text recognized from your image:
+            </p>
+            <div class="text-box">
+                <p>{{ text }}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
 </div>
 {% endblock content %}
