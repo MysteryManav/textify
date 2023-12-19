@@ -35,27 +35,17 @@
         </div>
     </div>
 
-    {% if photo %}
-    <div class="row mt-5">
-        <div class="col">
-            <h1 class="display-1">Image</h1>
-            <p class="lead mx-5 text-start">
-                Here is the image you uploaded: {{ filename }}
-            </p>
-            <img class="img-fluid" src="{{ photo_path }}">
-
-        </div>
-    </div>
-    {% endif %}
     {% if text %}
     <div class="row mt-5">
         <div class="col">
-            <h1 class="display-1">Recognized Text</h1>
-            <p class="lead mx-5 text-start">
-                Here is the text recognized from your image:
-            </p>
-            <div class="text-box">
-                <p>{{ text }}</p>
+            <h1 class="display-1">Recognization</h1>
+            <div class="img-display">
+              <div class="text-display">
+            
+                <img class="img-fluid" src="{{ url_for('static', filename='uploads/' + filename) }}">
+
+                <p><br></br>{{ text }}</p>
+                </div>
             </div>
         </div>
     </div>

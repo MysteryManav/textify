@@ -14,7 +14,7 @@ Bootstrap(app)
 # CSRF protection]
 # app.config['SECRET_KEY'] = secrets.token_urlsafe(32)
 app.config["SECRET_KEY"] = "SECRET-TUNNEL"
-app.config["UPLOAD_FOLDER"] = "uploads"
+app.config["UPLOAD_FOLDER"] = os.path.join("static", "uploads")
 
 
 @app.route("/", methods=["GET", "POST"])
